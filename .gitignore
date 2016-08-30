@@ -1,0 +1,14 @@
+# phpstorm project files
+.idea
+
+# windows thumbnail cache
+Thumbs.db
+
+# Mac DS_Store Files
+.DS_Store
+
+# npm modules
+/node_modules
+
+# ignore build
+/build
