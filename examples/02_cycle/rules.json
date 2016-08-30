@@ -1,0 +1,31 @@
+[{
+  "id": 1,
+  "title": "Is fast",
+  "body": "v => v.maxSpeed >= 200",
+  "true_id": 2,
+  "false_id": 3
+}, {
+  "id": 2,
+  "title": "Is accelerates quickly",
+  "body": "v => v.acceleration < 10",
+  "true_id": 5,
+  "false_id": 3
+}, {
+  "id": 3,
+  "title": "Is electric",
+  "body": "v => 'fuel' in v && v.fuel.type === 'electricity'",
+  "true_id": 4,
+  "false_id": 1
+}, {
+  "id": 4,
+  "title": "Is cheap in service",
+  "body": "v => 'fuel' in v && v.fuel.amount < 7",
+  "true_id": 5,
+  "false_id": 2
+}, {
+  "id": 5,
+  "title": "Is affordable",
+  "body": "v => v.price < 25000",
+  "true_id": null,
+  "false_id": null
+}]

@@ -17,6 +17,11 @@ export default (rules = [], task, nextRuleId, log = logger) => {
       throw new Error(`Unknown RuleId => ${nextRuleId}`);
     }
     if (appliedRuleIds.indexOf(nextRuleId) !== -1) {
+      log(
+        'error',
+        `\tCycle detected. Please check following sequence of rules: ${appliedRuleIds.join(', ')}. Stopped!`
+      );
+
       throw new Error(`Cycle detected. Please check following sequence of rules: ${appliedRuleIds.join(', ')}`);
     }
 

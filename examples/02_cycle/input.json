@@ -1,0 +1,28 @@
+[{
+  "name": "BMW X5",
+  "maxSpeed": 232,
+  "acceleration": 7.2,
+  "fuel": {
+    "type": "petrol",
+    "amount": 15
+  },
+  "price": 45000
+}, {
+  "name": "VW Golf VII",
+  "maxSpeed": 192,
+  "acceleration": 11,
+  "fuel": {
+    "type": "diesel",
+    "amount": 4
+  },
+  "price": 20000
+}, {
+  "name": "Tesla Model S",
+  "acceleration": 5.4,
+  "maxSpeed": 230,
+  "fuel": {
+    "type": "electricity",
+    "amount": 0
+  },
+  "price": 75000
+}]
