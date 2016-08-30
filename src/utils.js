@@ -13,7 +13,6 @@ const levels = {
 };
 
 export const logger = (level, message) => {
-  // console[level](message);
   process.stdout.write(`\x1b[${colors[levels[level]]}m${message}\n\x1b[0m`);
 };
 

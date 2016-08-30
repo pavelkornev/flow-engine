@@ -2,9 +2,12 @@
   "name": "flow-engine",
   "version": "0.0.1",
   "scripts": {
-    "start": "node --require babel-register ./src/cli",
-    "test": "./node_modules/mocha/bin/mocha --compilers js:babel-register test",
-    "lint": "./node_modules/eslint/bin/eslint.js ./src ./test"
+    "example_simple": "./build/cli.js --rules=./examples/01_simple/rules.json --tasks=./examples/01_simple/input.json",
+    "example_cycle": "./build/cli.js --rules=./examples/02_cycle/rules.json --tasks=./examples/02_cycle/input.json",
+    "build": "./node_modules/babel-cli/bin/babel.js src/ --out-dir build/ && chmod +x ./build/cli.js",
+    "test": "./node_modules/mocha/bin/mocha --watch --compilers js:babel-register test",
+    "lint": "./node_modules/eslint/bin/eslint.js ./src ./test",
+    "postinstall": "npm run build"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
