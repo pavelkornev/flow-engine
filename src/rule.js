@@ -1,5 +1,15 @@
 import { isPlainObject } from './utils';
 
+/**
+ * Check whatever Rule is valid
+ * @param {Object} rule            Plain JavaScript Object with following properties:
+ * @param {Number} rule.id         Unique identifier of the rule
+ * @param {String} [rule.title]    Title of the rule
+ * @param {String} rule.body       Tester function as String primitive to be evaluated into real JS function
+ * @param {Number} rule.true_id    ID of the rule to be executed if tester function return true
+ * @param {Number} rule.false_id   ID of the rule to be executed if tester function return false
+ * @returns {boolean}
+ */
 export const isValid = (rule) => {
   if (!isPlainObject(rule)) return false;
 
@@ -29,6 +39,16 @@ export const isValid = (rule) => {
   return true;
 };
 
+/**
+ * Creates tester function from `body` string
+ * @param {Object} rule            Plain JavaScript Object with following properties:
+ * @param {Number} rule.id         Unique identifier of the rule
+ * @param {String} [rule.title]    Title of the rule
+ * @param {String} rule.body       Tester function as String primitive to be evaluated into real JS function
+ * @param {Number} rule.true_id    ID of the rule to be executed if tester function return true
+ * @param {Number} rule.false_id   ID of the rule to be executed if tester function return false
+ * @return {object}                Returns copy of object with additional property `tester` which is created JS function
+ */
 export const createTester = (rule) => {
   if (!isValid(rule)) {
     throw new Error(`Attempt to use invalid rule: ${JSON.stringify(rule)}`);

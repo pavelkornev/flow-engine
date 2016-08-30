@@ -1,6 +1,22 @@
 import { logger, createHashTable } from './utils';
 import * as rule from './rule';
 
+/**
+ * @typedef {Object} Rule
+ * @property {Number} rule.id         Unique identifier of the rule
+ * @property {String} [rule.title]    Title of the rule
+ * @property {String} rule.body       Tester function as String primitive to be evaluated into real JS function
+ * @property {Number} rule.true_id    ID of the rule to be executed if tester function return true
+ * @property {Number} rule.false_id   ID of the rule to be executed if tester function return false
+ */
+
+/**
+ * Runner helps to run tasks and responsible for preventing endless cycles.
+ * @param {Array.<Rule>} rules        An array of rules
+ * @param {Object} task               Task to be performed
+ * @param {Number} nextRuleId         Initial ID of the rule to start with
+ * @param {Function} [logger]         Custom logger function
+ */
 export default (rules = [], task, nextRuleId, log = logger) => {
   if (!Array.isArray(rules)) {
     throw new Error(`Expected <array> of rules, but <${(typeof rules)}> was passed.`);

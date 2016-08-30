@@ -20,4 +20,5 @@ npm run example_cycle
 
 TODO:
 - add friendly errors in CLI tool
+- add tests for CLI tool
 - optimize performance: don't recreate rules for each task

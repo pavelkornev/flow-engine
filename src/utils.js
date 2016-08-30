@@ -12,11 +12,22 @@ const levels = {
   info: 'white',
 };
 
+/**
+ * Help to output information to stdout
+ * @param {String} level      Level of the message to determine the output color.
+ *                            Could be one of the: error, success, warning, info.
+ * @param {String} message    Message to display
+ */
 export const logger = (level, message) => {
   process.stdout.write(`\x1b[${colors[levels[level]]}m${message}\n\x1b[0m`);
 };
 
 // FIXME: ***very very*** primitive check, should be replaced with lodash.isPlainObject
+/**
+ * Checks whatever passed value is plain JavaScript object
+ * @param {*} v
+ * @return {Boolean}
+ */
 export const isPlainObject = (v) => (
   !!v
   && typeof v === 'object'
@@ -24,6 +35,12 @@ export const isPlainObject = (v) => (
   && (v).toString() === '[object Object]'
 );
 
+/**
+ * Creates hash table from an array of objects
+ * @param {String} key      Name of the property to be the key in output object
+ * @param {Array.<Object>}  An array of incomming objects
+ * @return {Object}
+ */
 export const createHashTable = (key, list = []) => (
   list.reduce(
     (res, item) => {
